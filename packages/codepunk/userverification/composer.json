@@ -1,0 +1,31 @@
+{
+    "name": "codepunk/userverification",
+    "description": "Package for adding user email verification on top of Laravel's 'Auth' framework",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Scott Slater",
+            "email": "scott@codepunk.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+
+    },
+    "autoload": {
+        "psr-4": {
+            "Codepunk\\UserVerification\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Codepunk\\UserVerification\\Providers\\UserVerificationServiceProvider"
+            ]
+        }
+    },
+    "my_notes": {
+        "note1": "autoload can have a 'classmap' section. How does that work?",
+        "note2": "Is there a way to require Laravel's Auth in auth section?"
+    }
+}
