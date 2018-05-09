@@ -2,6 +2,8 @@
 
 namespace Codepunk\UserVerification\Providers;
 
+use Codepunk\UserVerification\Support\Facades\UserVerification;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\ServiceProvider;
 
 class UserVerificationServiceProvider extends ServiceProvider
@@ -13,8 +15,13 @@ class UserVerificationServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
-        //dd('Made it to UserVerificationServiceProvider::boot');
+        $this->mergeConfigFrom(
+            __DIR__.'/../../config/userverification.php', 'userverification'
+        );
+
+        $this->loadMigrationsFrom(
+            __DIR__.'/../../database/migrations'
+        );
     }
 
     /**
@@ -24,7 +31,9 @@ class UserVerificationServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
-        //dd('Made it to UserVerificationServiceProvider::register');
+        App::bind('verification', function()
+        {
+            return new UserVerification;
+        });
     }
 }
