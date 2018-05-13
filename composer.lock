@@ -19,7 +19,7 @@
             "extra": {
                 "laravel": {
                     "providers": [
-                        "Codepunk\\UserVerification\\Providers\\UserVerificationServiceProvider"
+                        "Codepunk\\UserVerification\\Providers\\VerificationServiceProvider"
                     ]
                 }
             },
